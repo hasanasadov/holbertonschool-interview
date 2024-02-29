@@ -3,14 +3,24 @@
 undocumented 
 file 
 '''
+def canUnlockAll(boxes):
+    if not boxes:
+        return False
 
-canUnlockAll = __import__('0-lockboxes').canUnlockAll
+    n = len(boxes)
+    visited = set()
+    visited.add(0)  
+    queue = [0]     
 
-boxes = [[1], [2], [3], [4], []]
-print(canUnlockAll(boxes))
+    while queue:
+        current_box = queue.pop(0)
+        keys = boxes[current_box]  
 
-boxes = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]
-print(canUnlockAll(boxes))
+        for key in keys:
+            if key < n and key not in visited:
+                visited.add(key)
+                queue.append(key)
 
-boxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]
-print(canUnlockAll(boxes))
+    return len(visited) == n
+
+print(canUnlockAll(boxes)) 
