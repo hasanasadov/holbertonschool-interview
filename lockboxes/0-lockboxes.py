@@ -1,43 +1,28 @@
 #!/usr/bin/python3
-"""
-    Determines if all boxes can be unlocked.
-    
-    Args:
-    - boxes (list of lists): A list of lists where each inner list represents a box and contains keys to other boxes.
-    
-    Returns:
-    - bool: True if all boxes can be opened, else False.
-    """
+"""Exercise to practice interview"""
+from itertools import dropwhile
 
-canUnlockAll = __import__('0-lockboxes').canUnlockAll
 
 def canUnlockAll(boxes):
-    """
-    Determines if all boxes can be unlocked.
-    
-    Args:
-    - boxes (list of lists): A list of lists where each inner list represents a box and contains keys to other boxes.
-    
-    Returns:
-    - bool: True if all boxes can be opened, else False.
-    """
-    if not boxes:
-        return False
+    """Checks if all boxes can be unlocked"""
 
-    n = len(boxes)
-    visited = set()
-    visited.add(0)  
-    queue = [0]     
+    keys = {0}
+    range_boxes = range(len(boxes))
 
-    while queue:
-        current_box = queue.pop(0)
-        keys = boxes[current_box]  
+    while True:
+        not_found = set()
 
-        for key in keys:
-            if key < n and key not in visited:
-                visited.add(key)
-                queue.append(key)
+        for i in range_boxes:
+            if i in keys:
+                for key in dropwhile(lambda k: k in keys, boxes[i]):
+                    keys.add(key)
+            else:
+                not_found.add(i)
 
-    return len(visited) == n
+        if range_boxes == not_found:
+            return False
 
-print(canUnlockAll(boxes)) 
+        if not not_found:
+            return True
+
+        range_boxes = not_found
