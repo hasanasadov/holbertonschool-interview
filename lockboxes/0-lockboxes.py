@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''
-doc
+undocumented 
+file 
 '''
 
 canUnlockAll = __import__('0-lockboxes').canUnlockAll
