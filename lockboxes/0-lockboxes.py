@@ -1,4 +1,15 @@
 #!/usr/bin/python3
+"""
+    Determines if all boxes can be unlocked.
+    
+    Args:
+    - boxes (list of lists): A list of lists where each inner list represents a box and contains keys to other boxes.
+    
+    Returns:
+    - bool: True if all boxes can be opened, else False.
+    """
+
+canUnlockAll = __import__('0-lockboxes').canUnlockAll
 
 def canUnlockAll(boxes):
     """
