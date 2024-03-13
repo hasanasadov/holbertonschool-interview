@@ -5,7 +5,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stddef.h>
-
+/* ================================== */
+/*              PROTOTYPE             */
+/* ================================== */
 struct binary_tree_s
 {
 	int n;
