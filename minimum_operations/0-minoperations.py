@@ -18,7 +18,8 @@ def minOperations(n):
             carrier = summation
             summation *= 2
             operations += 1
-        else:summation += carrier
+        else:
+            summation += carrier
         operations += 1  # Always paste
 
     return operations
