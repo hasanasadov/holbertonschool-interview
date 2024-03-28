@@ -25,6 +25,13 @@ void print_sandpile(int grid[3][3])
 	}
 }
 
+/**
+ * check_is_stable - function that checks if grid1
+ * is stable and copies values to grid2
+ * @grid1: first sandpile.
+ * @grid2: second sandpile.
+ * Return: 1 if grid1 is stable. Otherwise, 0.
+ */
 int check_is_stable(int grid1[3][3], int grid2[3][3])
 {
 	int i;
@@ -46,7 +53,12 @@ int check_is_stable(int grid1[3][3], int grid2[3][3])
 	return (stable);
 }
 
-
+/**
+ * sum_grids - function that sums two grids or sandpiles
+ * @grid1: first sandpile.
+ * @grid2: second sandpile.
+ * Return: no return.
+ */
 void sum_grids(int grid1[3][3], int grid2[3][3])
 {
 	int i;
@@ -61,7 +73,12 @@ void sum_grids(int grid1[3][3], int grid2[3][3])
 	}
 }
 
-
+/**
+ * toppling_round - function that iterates over sandpiles
+ * @grid1: first sandpile.
+ * @grid2: second sandpile.
+ * Return: no return.
+ */
 void toppling_round(int grid1[3][3], int grid2[3][3])
 {
 	int i;
@@ -88,6 +105,13 @@ void toppling_round(int grid1[3][3], int grid2[3][3])
 }
 
 
+/**
+ * sandpiles_sum - function that computes the sum of
+ * two sandpiles.
+ * @grid1: first sandpile.
+ * @grid2: second sandpile.
+ * Return: no return.
+ */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 	sum_grids(grid1, grid2);
