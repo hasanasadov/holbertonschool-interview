@@ -43,4 +43,3 @@ try:
 
 finally:
     print_msg(ids, file_size)
-
