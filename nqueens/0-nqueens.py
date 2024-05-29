@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Solves the N Queens puzzle for NxN chessboard
+Solves the N Queens puzzle algorithm for NxN chessboard
 finds placement of N number of non-attacking queens
 """
 
