@@ -1,33 +1,39 @@
-
 #!/usr/bin/node
-const id = process.argv[2];
-const url = 'https://swapi-api.hbtn.io/api/films/' + id;
+
+// Star Wars API
+
+const argv = process.argv;
+const urlFilm = 'https://swapi-api.hbtn.io/api/films/';
+const urlMovie = `${urlFilm}${argv[2]}/`;
+
 const request = require('request');
 
-function retrive (urlChar) {
-  return new Promise(function (resolve, reject) {
-    request(urlChar, function getChar (err2, response2, body2) {
-      if (err2) {
-        reject(err2);
-      } else {
-        resolve(JSON.parse(body2).name);
-      }
-    });
-  });
-}
+request(urlMovie, function (error, response, body) {
+  if (error == null) {
+    const fbody = JSON.parse(body);
+    const characters = fbody.characters;
 
-async function getlist (urlist) {
-  for (const urlChar of urlist) {
-    const character = await retrive(urlChar);
-    console.log(character);
-  }
-}
-
-request(url, function getList (err, response, body) {
-  if (err) {
-    throw err;
+    if (characters && characters.length > 0) {
+      const limit = characters.length;
+      CharRequest(0, characters[0], characters, limit);
+    }
   } else {
-    const urlist = JSON.parse(body).characters;
-    getlist(urlist);
+    console.log(error);
   }
 });
+
+function CharRequest (idx, url, characters, limit) {
+  if (idx === limit) {
+    return;
+  }
+  request(url, function (error, response, body) {
+    if (!error) {
+      const rbody = JSON.parse(body);
+      console.log(rbody.name);
+      idx++;
+      CharRequest(idx, characters[idx], characters, limit);
+    } else {
+      console.error('error:', error);
+    }
+  });
+}
