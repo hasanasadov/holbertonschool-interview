@@ -25,13 +25,3 @@ def rotate_2d_matrix(matrix):
             matrix[y][x] = matrix[j][y]
             # Change right for top
             matrix[j][y] = tmp
-
-
-if __name__ == "__main__":
-    matrix = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-    ]
-    rotate_2d_matrix(matrix)
-    print(matrix)  # Expected output: [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
