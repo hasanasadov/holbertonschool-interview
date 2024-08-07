@@ -11,7 +11,3 @@ What you should learn from this project:
 * Given an n x n 2D matrix, rotate it 90 degrees clockwise.
 
 ---
-
-## Author
-
-**Joshua Martinez** - [dantsub](https://github.com/dantsub)
